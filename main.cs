@@ -70,8 +70,9 @@ class MainClass {
 
   public static void Main () {
 		//ex01
-    /*int n1, n2;
+    int n1, n2;
 		char op;
+		double resultado;
 		Console.WriteLine ("\n\n* EXERCÍCIO 1 *");
 		Console.Write ("Informe o primeiro número >> ");
 		n1 = int.Parse(Console.ReadLine());
@@ -79,42 +80,63 @@ class MainClass {
 		n2 = int.Parse(Console.ReadLine());
 		Console.Write ("Informe a operação desejada (* / + -) >> ");
 		op = char.Parse(Console.ReadLine());
-		Console.Write ("O resultado da operação foi: {0}", Operacao(op, n1, n2));
+		resultado = Operacao(op, n1, n2);
+		if (resultado != -1)
+			Console.Write ("O resultado da operação foi: {0}", resultado);
+		else
+			Console.Write ("A operação informada é inválida!");
 
 		//ex02
 		int codigo, qtd;
 		double total;
-		Console.WriteLine ("\n\n\* EXERCÍCIO 2 *\n\nCódigo Produto Preço Unitário (R$)\n---------------------------------\n100   Cachorro quente  R$ 1,70\n101   Bauru Simples    R$ 2,30\n102   Bauru com ovo    R$ 2,60\n103   Hamburguer       R$ 2,40\n104   Cheeseburguer    R$ 2,50\n105   Refrigerante     R$ 1,00\n----------------------------------");
+		Console.WriteLine ("\n\n* EXERCÍCIO 2 *\n\nCódigo Produto Preço Unitário (R$)\n---------------------------------\n100   Cachorro quente  R$ 1,70\n101   Bauru Simples    R$ 2,30\n102   Bauru com ovo    R$ 2,60\n103   Hamburguer       R$ 2,40\n104   Cheeseburguer    R$ 2,50\n105   Refrigerante     R$ 1,00\n----------------------------------");
 		Console.Write ("Informe o código do produto desejado >> ");
 		codigo = int.Parse(Console.ReadLine());
 		Console.Write ("Informe a quantidade desejada >> ");
 		qtd = int.Parse(Console.ReadLine());
-		Console.Write ("O seu pedido dará um total de >> R$ {0}", ValorFinal(codigo, qtd));
-		*/
+		total = ValorFinal(codigo, qtd);
+		if (total != -1)
+			Console.Write ("O seu pedido dará um total de >> R$ {0}", total);
+		else
+			Console.Write ("O código informado é inválido!");
+		
 		//ex03
-		int votosjose=0, votosjoana=0, votosroberto=0, votosbranco=0, votosnulo=0, voto=0, total=0;
+		int votosjose=0, votosjoana=0, votosroberto=0, votosbranco=0, votosnulo=0, voto=0;
 		Console.WriteLine ("\n\n* EXERCÍCIO 3 *");
 		do {
 			Console.Write("33 - José Couve\n25 - Joana Bravo\n10 - Roberto Nove\n0 - Voto branco\n4 - Voto nulo\n\nDigite o número do candidato para votar ou 1 para finalizar a votação >> ");
 			voto = int.Parse(Console.ReadLine());
-			
-			if (voto == 33)
-				votosjose++;
-			else
-				if (voto == 25)
-					votosjoana++;
-				else
-					if (voto == 10)
+			if (voto != 1)
+				switch (voto){
+					case 33:
+						votosjose++;
+						break;
+					case 25:
+						votosjoana++;
+						break;
+					case 10:
 						votosroberto++;
-					else
-						if (voto == 0)
-							votosbranco++;
-						else
-							if (voto == 4)
-								votosnulo++;
+						break;
+					case 0:
+						votosbranco++;
+						break;
+					case 4:
+						votosnulo++;
+						break;
+					default:
+						voto = 1;
+						break;
+				}
+		} while (voto != 1);
+		if (votosjose > votosjoana && votosjose > votosroberto)
+			Console.WriteLine("\n\n* O vencedor foi José Couve *");
+			else if (votosjoana > votosjose && votosjoana > votosroberto)
+				Console.WriteLine("\n\n* O vencedor foi Joana Bravo *");
+					else if (votosroberto > votosjose && votosroberto > votosjoana)
+						Console.WriteLine("\n\n* O vencedor foi Roberto Nove *");
 							else
-								voto = -1;
-								Console.WriteLine("123");
-		} while (voto != -1);
+								Console.WriteLine("\n\n* Não houve vencedor! *");
+		Console.WriteLine("* Total de votos Branco: {0} *", votosbranco);
+		Console.WriteLine("* Total de votos Nulo: {0} *", votosnulo);
   }
 }
