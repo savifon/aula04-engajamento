@@ -70,9 +70,9 @@ class MainClass {
 
   public static void Main () {
 		//ex01
-    int n1, n2;
+    /*int n1, n2;
 		char op;
-		Console.WriteLine ("* EXERCÍCIO 1 *");
+		Console.WriteLine ("\n\n* EXERCÍCIO 1 *");
 		Console.Write ("Informe o primeiro número >> ");
 		n1 = int.Parse(Console.ReadLine());
 		Console.Write ("Informe o segundo número >> ");
@@ -84,11 +84,37 @@ class MainClass {
 		//ex02
 		int codigo, qtd;
 		double total;
-		Console.WriteLine ("* EXERCÍCIO 2 *\n\nCódigo Produto Preço Unitário (R$)\n---------------------------------\n100   Cachorro quente  R$ 1,70\n101   Bauru Simples    R$ 2,30\n102   Bauru com ovo    R$ 2,60\n103   Hamburguer       R$ 2,40\n104   Cheeseburguer    R$ 2,50\n105   Refrigerante     R$ 1,00\n----------------------------------");
+		Console.WriteLine ("\n\n\* EXERCÍCIO 2 *\n\nCódigo Produto Preço Unitário (R$)\n---------------------------------\n100   Cachorro quente  R$ 1,70\n101   Bauru Simples    R$ 2,30\n102   Bauru com ovo    R$ 2,60\n103   Hamburguer       R$ 2,40\n104   Cheeseburguer    R$ 2,50\n105   Refrigerante     R$ 1,00\n----------------------------------");
 		Console.Write ("Informe o código do produto desejado >> ");
 		codigo = int.Parse(Console.ReadLine());
 		Console.Write ("Informe a quantidade desejada >> ");
 		qtd = int.Parse(Console.ReadLine());
 		Console.Write ("O seu pedido dará um total de >> R$ {0}", ValorFinal(codigo, qtd));
+		*/
+		//ex03
+		int votosjose=0, votosjoana=0, votosroberto=0, votosbranco=0, votosnulo=0, voto=0, total=0;
+		Console.WriteLine ("\n\n* EXERCÍCIO 3 *");
+		do {
+			Console.Write("33 - José Couve\n25 - Joana Bravo\n10 - Roberto Nove\n0 - Voto branco\n4 - Voto nulo\n\nDigite o número do candidato para votar ou 1 para finalizar a votação >> ");
+			voto = int.Parse(Console.ReadLine());
+			
+			if (voto == 33)
+				votosjose++;
+			else
+				if (voto == 25)
+					votosjoana++;
+				else
+					if (voto == 10)
+						votosroberto++;
+					else
+						if (voto == 0)
+							votosbranco++;
+						else
+							if (voto == 4)
+								votosnulo++;
+							else
+								voto = -1;
+								Console.WriteLine("123");
+		} while (voto != -1);
   }
 }
