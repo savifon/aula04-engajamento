@@ -49,6 +49,25 @@ class MainClass {
 		}
 	}
 
+	public static double ValorFinal (int codigo, int qtd) {
+		switch (codigo) {
+			case 100:
+				return 1.7*qtd;
+			case 101:
+				return 2.3*qtd;
+			case 102:
+				return 2.6*qtd;
+			case 103:
+				return 2.4*qtd;
+			case 104:
+				return 2.5*qtd;
+			case 105:
+				return 1.0*qtd;
+			default:
+				return -1;
+		}
+	}
+
   public static void Main () {
 		//ex01
     int n1, n2;
@@ -61,4 +80,15 @@ class MainClass {
 		Console.Write ("Informe a operação desejada (* / + -) >> ");
 		op = char.Parse(Console.ReadLine());
 		Console.Write ("O resultado da operação foi: {0}", Operacao(op, n1, n2));
+
+		//ex02
+		int codigo, qtd;
+		double total;
+		Console.WriteLine ("* EXERCÍCIO 2 *\n\nCódigo Produto Preço Unitário (R$)\n---------------------------------\n100   Cachorro quente  R$ 1,70\n101   Bauru Simples    R$ 2,30\n102   Bauru com ovo    R$ 2,60\n103   Hamburguer       R$ 2,40\n104   Cheeseburguer    R$ 2,50\n105   Refrigerante     R$ 1,00\n----------------------------------");
+		Console.Write ("Informe o código do produto desejado >> ");
+		codigo = int.Parse(Console.ReadLine());
+		Console.Write ("Informe a quantidade desejada >> ");
+		qtd = int.Parse(Console.ReadLine());
+		Console.Write ("O seu pedido dará um total de >> R$ {0}", ValorFinal(codigo, qtd));
+  }
 }
